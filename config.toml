@@ -7,7 +7,6 @@ googleAnalytics = "UA-92792949-1"
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 enableEmoji= true
-footnotereturnlinkcontents="↩"
 publishDir = "docs"
 
 [permalinks]
