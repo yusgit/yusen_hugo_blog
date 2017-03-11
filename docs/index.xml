@@ -6,8 +6,86 @@
     <description>Recent content on Yusen A data player Using R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Mar 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>如何在github使用blogdown搭建hugo个人博客</title>
+      <link>/2017/03/11/how-to-make-hugo-blog-on-github/</link>
+      <pubDate>Sat, 11 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/03/11/how-to-make-hugo-blog-on-github/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;博客已经搭建两周了，但是上周出去嗨了，以至于原定于上周应该写的博文未能完成。 这篇博文主要记录一下我在搭建过程中趟过的坑。以便看了这的人不再绕这么多的弯路。虽然也有其他一些博客讲了如何搭建hugo博客的，但使用blogdown的中文介绍还没见到有。说明一点，本人是个数据分析师，常用的编程是R，但不是程序员，工程师。 因此这篇博文跟多是给像我这样想分享自己想法的数据分析师一个参考。&lt;/p&gt;
+&lt;p&gt;由于我懒得截图，描述能力又差，可能看着有些抽象，望见谅！&lt;/p&gt;
+&lt;div class=&#34;section level2&#34;&gt;
+&lt;h2&gt;前期准备&lt;/h2&gt;
+&lt;div id=&#34;rstudior&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1.首先是安装Rstudio以及R程序。&lt;/h3&gt;
+&lt;p&gt;在后期会使用到一些依赖包，具体是哪些我没记下来，但在使用过程中，Rstudio会自动帮你安装好。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;blogdown&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.安装blogdown&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://bookdown.org/yihui/blogdown&#34;&gt;blogdown&lt;/a&gt;是由yihui开发的一个R包，目前尚为完善，还在开发中,文档也都是英文的,只讲了初步安装，后面一些配置还没讲。但对于对前端不甚熟悉的同志来说，使用它会很方便的。英文阅读ok的朋友建议直接去阅读源文档，想初步体验一下的就看一下的步骤吧：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;rstudio/blogdown&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果你没有安装devtools这个包的话，需要提前安装。&lt;/p&gt;
+&lt;p&gt;因为是从github下载的安装的，国内网络不好的同学可能会在下载过程遇到些麻烦，例如我就下n次都没成功，实在无奈用亚马逊ec2搭梯子了，关于如何搭建shadowsocks的&lt;a href=&#34;https://segmentfault.com/a/1190000003101075&#34;&gt;傻瓜式教程&lt;/a&gt;，我是完全没问题的成功了。最后还有&lt;a href=&#34;https://teddysun.com/489.html&#34;&gt;安装BBR加速&lt;/a&gt;的，不然会网速很慢。&lt;/p&gt;
+&lt;p&gt;网络好的跳过继续。&lt;/p&gt;
+&lt;p&gt;用blogdown来搭建hugo的最大一个好处，就是对使用r分析数据的使用者来说，可以识别Rmd格式并生成静态页面以便分享浏览，这对分享报告是非常便利的。 希望yihui能够尽快完善这个包吧，只怪自己能力还不够，尚不能做一份贡献。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hugo&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.安装hugo&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.gohugo.io/&#34;&gt;hugo&lt;/a&gt;是一个静态页面生成器，利用它可以生成的页面可以直接部署到服务器上进行访问，浏览。也有很多主题可以套用，感觉比jekyll简单些。最主要的原因是它生成页面的速度比较快。而且适合windows用户使用，我们不用到官网下载hugo安装，直接用blogdown函数可以安装最新的hugo：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;blogdown::install_hugo()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&#34;section level3&#34;&gt;
+&lt;h3&gt;4.新建自己的网页&lt;/h3&gt;
+&lt;p&gt;经过前面三个步骤，基本前期转变就完成了，可以生成自己的页面啦~~！ 但是在此之前，建议先用rstudio新建一个project，这样方便管理之后生成的文件：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;blogdown::new_site()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;它需要下载一个主题和一些内容的案例，由于又是从github下载文件，所以网络又坑了我一把，所以建议还是要翻墙的。 下载好后就可以看到一个初始的页面生成了。基本上跟我这个页面样子是一样的。 在文件夹生成了一些文件，其实也可以不了解：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;config.toml 这个文件特别重要，是整个网站的基本配置文件。
+content 用来存放md，rmd格式的博文的原文件
+public 存放的是生成的静态页面
+themes 顾名思义就是主题文件
+static 放的是博文内容的一些图片等&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如网站的语言，网站标题，作者等等n多配置，有特别需求一定要看hugo的文档说明才行。虽然也有很多地方没有说明白的，对于小白是看的很痛苦。例如layouts这个文件，是用来存放网页外观设置的html，默认在主题里面，如果要自己配置一些自定义，还要懂一些文档里提到的一些语法。&lt;/p&gt;
+&lt;p&gt;基础用户体验的话，就改个标题，logo什么的就好了。 之后如果需要生成本地访问服务，就不用在新建了，执行下面就行：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;blogdown::serve_site()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果编辑改动了文档内容，它会自动刷新页面显示的。可谓是所见即所得。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5.新增post（文章）&lt;/h3&gt;
+&lt;p&gt;通过rstudio工具栏里的addins（貌似是1.0后的版本才有）点击new post会引导你新建一篇文章。自动会按照命名格式保存到content/post文件夹下。 说到命名格式，遵循2017-03-11-title来命名的，文件名使用英文，不然生成url会被转为乱码，而导致不能访问，内容编辑里的头设置的title可以用中文，这样在页面显示是正常显示中文没问题的。 同时还支持rmarkdown格式，好处是可以运行r脚本并展示结果。但直接用go语言执行的hugo是不能识别rmd文本的。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;github&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;部署到github&lt;/h2&gt;
+&lt;p&gt;前面在本地的准备基本上完成了，之后要部署到github，有经验的人可能基本上知道怎么做了，github也有很人性化的&lt;a href=&#34;https://help.github.com/categories/github-pages-basics/&#34;&gt;说明文档和指引&lt;/a&gt;，但还是英文的。为什么要部署到github，大概是因为免费吧。。。。&lt;/p&gt;
+&lt;div id=&#34;github&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1.&lt;a href=&#34;https://www.baidu.com/s?ie=UTF-8&amp;amp;wd=github%E4%B8%8A%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B%EF%BC%9F&#34;&gt;github上部署静态页面是怎么回事？&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在github上建立一个仓库后，上传你的静态页面，并做一些简单的设置后，就可以通过仓库名称生成的域名来访问你的页面。如下面是本人的一个project url页面的例子：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;yusgit.github.io/yusen_hugo_blog&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;github还有个人url于企业url。设置的时候是有分别的。这个坑我趟了几次，特别是项目url下的网页内容目录应该修改为docs（原来默认生成是public），并且要设置成分支。 但个人url就不需要，个人url的样式如下：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;yusgit.github.io&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;它的区别是不带project目录的。具体我还是建议去看看文档。我感觉这样说不清楚。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;url&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.建立个人url的页面&lt;/h3&gt;
+&lt;p&gt;首先在GitHub上创建个Repository，命名为：YOURNAME.github.io(YOURNAME替换为自己的用户名)，然后用git 将刚才创建的YOURNAME.github.io项目clone下来。&lt;/p&gt;
+&lt;p&gt;将生成的 public 目录下所有文件拷贝到YOURNAME.github.io项目中，并提交版本。&lt;/p&gt;
+&lt;p&gt;而我在这里要介绍的是，通过Rstudio自带的git版本控制。&lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/200532077&#34;&gt;Rstudio的git怎么用？&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;首先新建R project-&amp;gt;版本控制-&amp;gt;git，填上你在github的建立的仓库地址连接，url样式可能如下：&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;https://github.com/YOURNAME/YOURNAME.github.io.git&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样每次更新上传都会很方便。&lt;/p&gt;
+&lt;p&gt;因为blogdown新建网站需要检查空文件才行，所以新建一个文件夹用于新建。 然后再把这个文件夹内的所有文件复制到project目录下，提交并同步即可。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>R Notebook</title>
@@ -29,101 +107,12 @@
     </item>
     
     <item>
-      <title>A Plain Markdown Post</title>
-      <link>/2016/12/30/a-plain-markdown-post/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      
-      <guid>/2016/12/30/a-plain-markdown-post/</guid>
-      <description>&lt;p&gt;This is a post written in plain Markdown (&lt;code&gt;*.md&lt;/code&gt;) instead of R Markdown (&lt;code&gt;*.Rmd&lt;/code&gt;). The major differences are:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (&lt;code&gt;```{r}&lt;/code&gt;);&lt;/li&gt;
-&lt;li&gt;A plain Markdown post is rendered through &lt;a href=&#34;https://gohugo.io/overview/configuration/&#34;&gt;Blackfriday&lt;/a&gt;, and an R Markdown document is compiled by &lt;a href=&#34;http://rmarkdown.rstudio.com&#34;&gt;&lt;strong&gt;rmarkdown&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;http://pandoc.org&#34;&gt;Pandoc&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown. For example, you can write a task list with Blackfriday but not with Pandoc:&lt;/p&gt;
-
-&lt;ul class=&#34;task-list&#34;&gt;
-&lt;li&gt;&lt;input type=&#34;checkbox&#34; checked disabled class=&#34;task-list-item&#34;&gt; Write an R package.&lt;/li&gt;
-&lt;li&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; Write a book.&lt;/li&gt;
-&lt;li&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; &amp;hellip;&lt;/li&gt;
-&lt;li&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; Profit!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Similarly, Blackfriday does not support LaTeX math and Pandoc does. I have added the MathJax support to this theme (&lt;a href=&#34;https://github.com/yihui/hugo-lithium-theme&#34;&gt;hugo-lithium-theme&lt;/a&gt;) but there is a caveat for plain Markdown posts: you have to include inline math expressions in  a pair of escaped parentheses &lt;code&gt;\( \)&lt;/code&gt; instead of dollar signs &lt;code&gt;$ $&lt;/code&gt;, e.g. &lt;code&gt;\(S_n = \sum_{i=1}^n X_i\)&lt;/code&gt;. For R Markdown posts, you can use &lt;code&gt;$ $&lt;/code&gt; to write inline math expressions.&lt;/p&gt;
-
-&lt;p&gt;When creating a new post, you have to decide whether the post format is Markdown or R Markdown, and this can be done via the &lt;code&gt;rmd&lt;/code&gt; argument of the function &lt;code&gt;blogdown::new_post()&lt;/code&gt;, e.g.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;blogdown::new_post(&amp;quot;Post Title&amp;quot;, rmd = FALSE)
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
       <guid>/about/</guid>
       <description>&lt;p&gt;This is a &amp;ldquo;hello world&amp;rdquo; example website for the &lt;a href=&#34;https://github.com/rstudio/blogdown&#34;&gt;&lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt; package. The theme was forked from &lt;a href=&#34;https://github.com/jrutheiser/hugo-lithium-theme&#34;&gt;@jrutheiser/hugo-lithium-theme&lt;/a&gt; and modified by &lt;a href=&#34;https://github.com/yihui/hugo-lithium-theme&#34;&gt;Yihui Xie&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R Markdown&lt;/h1&gt;
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &amp;lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Including Plots&lt;/h1&gt;
-&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
-  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
-  init.angle = -50, border = NA
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;./post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: A fancy pie chart.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>/2015/01/01/lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      
-      <guid>/2015/01/01/lorem-ipsum/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Lorem ipsum&lt;/strong&gt; dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore &lt;em&gt;magna aliqua&lt;/em&gt;. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
 </description>
     </item>
     

@@ -1,0 +1,76 @@
+---
+title: 如何在github使用blogdown搭建hugo个人博客
+author: Yusen
+date: '2017-03-11'
+slug: how-to-make-hugo-blog-on-github
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>博客已经搭建两周了，但是上周出去嗨了，以至于原定于上周应该写的博文未能完成。 这篇博文主要记录一下我在搭建过程中趟过的坑。以便看了这的人不再绕这么多的弯路。虽然也有其他一些博客讲了如何搭建hugo博客的，但使用blogdown的中文介绍还没见到有。说明一点，本人是个数据分析师，常用的编程是R，但不是程序员，工程师。 因此这篇博文跟多是给像我这样想分享自己想法的数据分析师一个参考。</p>
+<p>由于我懒得截图，描述能力又差，可能看着有些抽象，望见谅！</p>
+<div class="section level2">
+<h2>前期准备</h2>
+<div id="rstudior" class="section level3">
+<h3>1.首先是安装Rstudio以及R程序。</h3>
+<p>在后期会使用到一些依赖包，具体是哪些我没记下来，但在使用过程中，Rstudio会自动帮你安装好。</p>
+</div>
+<div id="blogdown" class="section level3">
+<h3>2.安装blogdown</h3>
+<p><a href="https://bookdown.org/yihui/blogdown">blogdown</a>是由yihui开发的一个R包，目前尚为完善，还在开发中,文档也都是英文的,只讲了初步安装，后面一些配置还没讲。但对于对前端不甚熟悉的同志来说，使用它会很方便的。英文阅读ok的朋友建议直接去阅读源文档，想初步体验一下的就看一下的步骤吧：</p>
+<pre class="r"><code>devtools::install_github(&#39;rstudio/blogdown&#39;)</code></pre>
+<p>如果你没有安装devtools这个包的话，需要提前安装。</p>
+<p>因为是从github下载的安装的，国内网络不好的同学可能会在下载过程遇到些麻烦，例如我就下n次都没成功，实在无奈用亚马逊ec2搭梯子了，关于如何搭建shadowsocks的<a href="https://segmentfault.com/a/1190000003101075">傻瓜式教程</a>，我是完全没问题的成功了。最后还有<a href="https://teddysun.com/489.html">安装BBR加速</a>的，不然会网速很慢。</p>
+<p>网络好的跳过继续。</p>
+<p>用blogdown来搭建hugo的最大一个好处，就是对使用r分析数据的使用者来说，可以识别Rmd格式并生成静态页面以便分享浏览，这对分享报告是非常便利的。 希望yihui能够尽快完善这个包吧，只怪自己能力还不够，尚不能做一份贡献。</p>
+</div>
+<div id="hugo" class="section level3">
+<h3>3.安装hugo</h3>
+<p><a href="http://www.gohugo.io/">hugo</a>是一个静态页面生成器，利用它可以生成的页面可以直接部署到服务器上进行访问，浏览。也有很多主题可以套用，感觉比jekyll简单些。最主要的原因是它生成页面的速度比较快。而且适合windows用户使用，我们不用到官网下载hugo安装，直接用blogdown函数可以安装最新的hugo：</p>
+<pre class="r"><code>blogdown::install_hugo()</code></pre>
+</div>
+<div class="section level3">
+<h3>4.新建自己的网页</h3>
+<p>经过前面三个步骤，基本前期转变就完成了，可以生成自己的页面啦~~！ 但是在此之前，建议先用rstudio新建一个project，这样方便管理之后生成的文件：</p>
+<pre class="r"><code>blogdown::new_site()</code></pre>
+<p>它需要下载一个主题和一些内容的案例，由于又是从github下载文件，所以网络又坑了我一把，所以建议还是要翻墙的。 下载好后就可以看到一个初始的页面生成了。基本上跟我这个页面样子是一样的。 在文件夹生成了一些文件，其实也可以不了解：</p>
+<pre class="r"><code>config.toml 这个文件特别重要，是整个网站的基本配置文件。
+content 用来存放md，rmd格式的博文的原文件
+public 存放的是生成的静态页面
+themes 顾名思义就是主题文件
+static 放的是博文内容的一些图片等</code></pre>
+<p>例如网站的语言，网站标题，作者等等n多配置，有特别需求一定要看hugo的文档说明才行。虽然也有很多地方没有说明白的，对于小白是看的很痛苦。例如layouts这个文件，是用来存放网页外观设置的html，默认在主题里面，如果要自己配置一些自定义，还要懂一些文档里提到的一些语法。</p>
+<p>基础用户体验的话，就改个标题，logo什么的就好了。 之后如果需要生成本地访问服务，就不用在新建了，执行下面就行：</p>
+<pre class="r"><code>blogdown::serve_site()</code></pre>
+<p>如果编辑改动了文档内容，它会自动刷新页面显示的。可谓是所见即所得。</p>
+</div>
+<div id="post" class="section level3">
+<h3>5.新增post（文章）</h3>
+<p>通过rstudio工具栏里的addins（貌似是1.0后的版本才有）点击new post会引导你新建一篇文章。自动会按照命名格式保存到content/post文件夹下。 说到命名格式，遵循2017-03-11-title来命名的，文件名使用英文，不然生成url会被转为乱码，而导致不能访问，内容编辑里的头设置的title可以用中文，这样在页面显示是正常显示中文没问题的。 同时还支持rmarkdown格式，好处是可以运行r脚本并展示结果。但直接用go语言执行的hugo是不能识别rmd文本的。</p>
+</div>
+</div>
+<div id="github" class="section level2">
+<h2>部署到github</h2>
+<p>前面在本地的准备基本上完成了，之后要部署到github，有经验的人可能基本上知道怎么做了，github也有很人性化的<a href="https://help.github.com/categories/github-pages-basics/">说明文档和指引</a>，但还是英文的。为什么要部署到github，大概是因为免费吧。。。。</p>
+<div id="github" class="section level3">
+<h3>1.<a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=github%E4%B8%8A%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B%EF%BC%9F">github上部署静态页面是怎么回事？</a></h3>
+<p>在github上建立一个仓库后，上传你的静态页面，并做一些简单的设置后，就可以通过仓库名称生成的域名来访问你的页面。如下面是本人的一个project url页面的例子：</p>
+<pre class="r"><code>yusgit.github.io/yusen_hugo_blog</code></pre>
+<p>github还有个人url于企业url。设置的时候是有分别的。这个坑我趟了几次，特别是项目url下的网页内容目录应该修改为docs（原来默认生成是public），并且要设置成分支。 但个人url就不需要，个人url的样式如下：</p>
+<pre class="r"><code>yusgit.github.io</code></pre>
+<p>它的区别是不带project目录的。具体我还是建议去看看文档。我感觉这样说不清楚。</p>
+</div>
+<div id="url" class="section level3">
+<h3>2.建立个人url的页面</h3>
+<p>首先在GitHub上创建个Repository，命名为：YOURNAME.github.io(YOURNAME替换为自己的用户名)，然后用git 将刚才创建的YOURNAME.github.io项目clone下来。</p>
+<p>将生成的 public 目录下所有文件拷贝到YOURNAME.github.io项目中，并提交版本。</p>
+<p>而我在这里要介绍的是，通过Rstudio自带的git版本控制。<a href="https://support.rstudio.com/hc/en-us/articles/200532077">Rstudio的git怎么用？</a></p>
+<p>首先新建R project-&gt;版本控制-&gt;git，填上你在github的建立的仓库地址连接，url样式可能如下：</p>
+<pre class="r"><code>https://github.com/YOURNAME/YOURNAME.github.io.git</code></pre>
+<p>这样每次更新上传都会很方便。</p>
+<p>因为blogdown新建网站需要检查空文件才行，所以新建一个文件夹用于新建。 然后再把这个文件夹内的所有文件复制到project目录下，提交并同步即可。</p>
+</div>
+</div>
