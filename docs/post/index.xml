@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Yusen A data player Using R</title>
-    <link>/blog.yasasa.cn/post/index.xml</link>
+    <link>/post/index.xml</link>
     <description>Recent content in Posts on Yusen A data player Using R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Mar 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog.yasasa.cn/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>如何在github使用blogdown搭建hugo个人博客</title>
-      <link>/blog.yasasa.cn/2017/03/11/how-to-make-hugo-blog-on-github/</link>
+      <link>/2017/03/11/how-to-make-hugo-blog-on-github/</link>
       <pubDate>Sat, 11 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog.yasasa.cn/2017/03/11/how-to-make-hugo-blog-on-github/</guid>
+      <guid>/2017/03/11/how-to-make-hugo-blog-on-github/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 &lt;!-- /BLOGDOWN-HEAD --&gt;
 
@@ -89,10 +89,10 @@ static 放的是博文内容的一些图片等&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>R Notebook</title>
-      <link>/blog.yasasa.cn/2017/03/02/r-notebook/</link>
+      <link>/2017/03/02/r-notebook/</link>
       <pubDate>Thu, 02 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog.yasasa.cn/2017/03/02/r-notebook/</guid>
+      <guid>/2017/03/02/r-notebook/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 &lt;!-- /BLOGDOWN-HEAD --&gt;
 

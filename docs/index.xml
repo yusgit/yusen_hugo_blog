@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yusen A data player Using R</title>
-    <link>/blog.yasasa.cn/index.xml</link>
+    <link>/index.xml</link>
     <description>Recent content on Yusen A data player Using R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Mar 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/blog.yasasa.cn/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>如何在github使用blogdown搭建hugo个人博客</title>
-      <link>/blog.yasasa.cn/2017/03/11/how-to-make-hugo-blog-on-github/</link>
+      <link>/2017/03/11/how-to-make-hugo-blog-on-github/</link>
       <pubDate>Sat, 11 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog.yasasa.cn/2017/03/11/how-to-make-hugo-blog-on-github/</guid>
+      <guid>/2017/03/11/how-to-make-hugo-blog-on-github/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 &lt;!-- /BLOGDOWN-HEAD --&gt;
 
@@ -89,10 +89,10 @@ static 放的是博文内容的一些图片等&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>R Notebook</title>
-      <link>/blog.yasasa.cn/2017/03/02/r-notebook/</link>
+      <link>/2017/03/02/r-notebook/</link>
       <pubDate>Thu, 02 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog.yasasa.cn/2017/03/02/r-notebook/</guid>
+      <guid>/2017/03/02/r-notebook/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 &lt;!-- /BLOGDOWN-HEAD --&gt;
 
@@ -113,10 +113,10 @@ static 放的是博文内容的一些图片等&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>About</title>
-      <link>/blog.yasasa.cn/about/</link>
+      <link>/about/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
-      <guid>/blog.yasasa.cn/about/</guid>
+      <guid>/about/</guid>
       <description>&lt;p&gt;This is a &amp;ldquo;hello world&amp;rdquo; example website for the &lt;a href=&#34;https://github.com/rstudio/blogdown&#34;&gt;&lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt; package. The theme was forked from &lt;a href=&#34;https://github.com/jrutheiser/hugo-lithium-theme&#34;&gt;@jrutheiser/hugo-lithium-theme&lt;/a&gt; and modified by &lt;a href=&#34;https://github.com/yihui/hugo-lithium-theme&#34;&gt;Yihui Xie&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
