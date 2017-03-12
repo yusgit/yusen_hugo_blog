@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Yusen A data player Using R</title>
-    <link>/post/index.xml</link>
+    <link>/blog.yasasa.cn/post/index.xml</link>
     <description>Recent content in Posts on Yusen A data player Using R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Mar 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog.yasasa.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>如何在github使用blogdown搭建hugo个人博客</title>
-      <link>/2017/03/11/how-to-make-hugo-blog-on-github/</link>
+      <link>/blog.yasasa.cn/2017/03/11/how-to-make-hugo-blog-on-github/</link>
       <pubDate>Sat, 11 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/03/11/how-to-make-hugo-blog-on-github/</guid>
+      <guid>/blog.yasasa.cn/2017/03/11/how-to-make-hugo-blog-on-github/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 &lt;!-- /BLOGDOWN-HEAD --&gt;
 
@@ -89,11 +89,16 @@ static 放的是博文内容的一些图片等&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>R Notebook</title>
-      <link>/2017/03/02/r-notebook/</link>
+      <link>/blog.yasasa.cn/2017/03/02/r-notebook/</link>
       <pubDate>Thu, 02 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/03/02/r-notebook/</guid>
-      <description>&lt;p&gt;由于经常要做重复性的报表供业务部门浏览。想了挺多法子的。 找技术开发的后台，一直做不到自己想要的效果，很重要的一点就是不能随着业务调整而有所变化。 看了Rshing等一些在线报表，逐渐也想自己去构建一个这样的内部系统。 一开始便弄了shing server 觉得发布很不方便，接着又弄了Rstudio server，用起起来总算是比较好了。 但这样仍然是没能满足我的需求，Rshiny的交互性较好，但我要做一篇报告的话，又有文字又有图，似乎rmarkdown更合适的。&lt;/p&gt;
+      <guid>/blog.yasasa.cn/2017/03/02/r-notebook/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;由于经常要做重复性的报表供业务部门浏览。想了挺多法子的。 找技术开发的后台，一直做不到自己想要的效果，很重要的一点就是不能随着业务调整而有所变化。 看了Rshing等一些在线报表，逐渐也想自己去构建一个这样的内部系统。 一开始便弄了shing server 觉得发布很不方便，接着又弄了Rstudio server，用起起来总算是比较好了。 但这样仍然是没能满足我的需求，Rshiny的交互性较好，但我要做一篇报告的话，又有文字又有图，似乎rmarkdown更合适的。&lt;/p&gt;
 &lt;p&gt;创业公司的方向业务人力等变动的很频繁，我也经常需要应付事务性的工作。这个项目就这样暂时沉寂了一段时间。&lt;/p&gt;
 &lt;div id=&#34;jekyll&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Jekyll的从入门到放弃&lt;/h1&gt;

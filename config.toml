@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "blog.yasasa.cn/"
 relativeurls = true
 languageCode = "en-us"
 title = "Yusen A data player Using R"
